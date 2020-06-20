@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                  wo日
+                 hao wo日
                 </div>
 
                 <div class="links">
