@@ -8,6 +8,6 @@ use Illuminate\Http\Request;
 class TestController extends Controller
 {
     public function info(){
-        echo "你好";
+        echo phpinfo();
     }
 }

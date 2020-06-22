@@ -19,3 +19,9 @@ Route::get('/', function () {
 Route::get("info","Test\TestController@info");
 //商品
 Route::get("detail","Goods\GoodsController@detail");
+//前台注册
+Route::get("user/reg","User\UserController@reg");
+Route::post("user/regdo","User\UserController@regdo");
+//登录
+Route::get("user/login","User\UserController@login");
+Route::post("user/logindo","User\UserController@logindo");
