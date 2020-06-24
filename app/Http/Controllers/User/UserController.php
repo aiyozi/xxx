@@ -57,7 +57,6 @@ class UserController extends Controller
     public function logindo(Request $request){
         $user_name=request()->user_name;
         $password=request()->password;
-
 //        dd($password);
         $data=UsersModel::where('user_name',$user_name)->first();
         $res=password_verify($password,$data['password']);
@@ -65,9 +64,17 @@ class UserController extends Controller
             return redirect("/user/login")->with("msg","用户名或密码错误");
         }
         if($data){
+           session(['res'=>$data]);
             return redirect("user/center");
         }else{
             return redirect("/user/login")->with("msg","用户名或密码错误");
         }
+    }
+//    个人中心
+    public  function center(){
+//        根据用户名称查询用户
+        $user_id=session("res.user_id");
+        $data=UsersModel::where("user_id",$user_id)->first();
+        return view("user.center",['data'=>$data]);
     }
 }
